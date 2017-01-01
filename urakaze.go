@@ -8,7 +8,7 @@ import (
 	"regexp"
 )
 
-// comment
+// Page ...
 type Page struct {
 	Title string
 	Body  []byte
