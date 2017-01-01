@@ -1,13 +1,14 @@
 package main
 
 import (
+	"errors"
 	"html/template"
 	"io/ioutil"
 	"net/http"
 	"regexp"
-	"errors"
 )
 
+// comment
 type Page struct {
 	Title string
 	Body  []byte
