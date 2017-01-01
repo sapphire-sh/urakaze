@@ -1,0 +1,28 @@
+{
+  "name": "urakaze",
+  "version": "0.0.1",
+  "description": "Twitter client written in JavaScript",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sapphiredev/urakaze.git"
+  },
+  "keywords": [
+    "twitter"
+  ],
+  "author": "sapphire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sapphiredev/urakaze/issues"
+  },
+  "homepage": "https://github.com/sapphiredev/urakaze#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "twit": "^2.2.5",
+    "twitter-text": "^1.14.3",
+    "webpack": "^1.14.0"
+  }
+}
