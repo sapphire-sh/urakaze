@@ -67,5 +67,6 @@ _testmain.go
 # External packages folder
 vendor/
 
-# Compiled binary
+# Compiled output
 urakaze
+/dist

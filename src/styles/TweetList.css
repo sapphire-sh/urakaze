@@ -1,0 +1,7 @@
+.tweet_list {
+	display: inline-block;
+	width: 240px;
+	height: calc(100vh - 42px - 42px);
+	overflow-y: scroll;
+	white-space: normal;
+}

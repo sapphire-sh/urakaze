@@ -1,0 +1,9 @@
+body {
+	height: calc(100vh - 42px);
+}
+
+.main.container {
+	width: 100vw;
+	overflow-x: scroll;
+	margin-top: 42px;
+}
