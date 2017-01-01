@@ -8,8 +8,7 @@ import (
 	"regexp"
 )
 
-// Page ...
-type Page struct {
+type page struct {
 	Title string
 	Body  []byte
 }
@@ -27,18 +26,18 @@ func getTitle(w http.ResponseWriter, r *http.Request) (string, error) {
 	return m[2], nil // The title is the second subexpression.
 }
 
-func (p *Page) save() error {
+func (p *page) save() error {
 	filename := "data/" + p.Title + ".txt"
 	return ioutil.WriteFile(filename, p.Body, 0600)
 }
 
-func loadPage(title string) (*Page, error) {
+func loadPage(title string) (*page, error) {
 	filename := "data/" + title + ".txt"
 	body, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return nil, err
 	}
-	return &Page{Title: title, Body: body}, nil
+	return &page{Title: title, Body: body}, nil
 }
 
 func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
@@ -52,13 +51,13 @@ func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
 func editHandler(w http.ResponseWriter, r *http.Request, title string) {
 	p, err := loadPage(title)
 	if err != nil {
-		p = &Page{Title: title}
+		p = &page{Title: title}
 	}
 	renderTemplate(w, "edit", p)
 }
 func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 	body := r.FormValue("body")
-	p := &Page{Title: title, Body: []byte(body)}
+	p := &page{Title: title, Body: []byte(body)}
 	err := p.save()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -82,7 +81,7 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 	}
 }
 
-func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
+func renderTemplate(w http.ResponseWriter, tmpl string, p *page) {
 	err := templates.ExecuteTemplate(w, tmpl+".html", p)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
