@@ -12,7 +12,7 @@ app.use(Express.static(path.resolve(__dirname, '../dist')));
 
 app.get('/tweets', (req, res) => {
 	let json = [];
-	for(let i = 0; i < 10; ++i) {
+	for(let i = 0; i < Math.floor(Math.random() * 9) + 1; ++i) {
 		json.push({
 			"coordinates": null,
 			"favorited": false,

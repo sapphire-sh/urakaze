@@ -11,21 +11,24 @@ export function requestTweets() {
 	};
 }
 
-export function receiveTweets(tweets) {
+export function receiveTweets(columnType, tweets) {
 	return {
 		type: RECEIVE_TWEETS,
-		tweets
+		tweets: {
+			columnType: columnType,
+			[columnType]: tweets
+		}
 	};
 }
 
-export function fetchTweets() {
+export function fetchTweets(columnType) {
 	return (dispatch) => {
 		dispatch(requestTweets());
 
 		return fetch(`${HOSTNAME}/tweets`)
 		.then(res => res.json())
 		.then((json) => {
-			dispatch(receiveTweets(json));
+			dispatch(receiveTweets(columnType, json));
 		});
 	};
 };

@@ -13,6 +13,7 @@ const tweets = (state = {
 		return state;
 		case RECEIVE_TWEETS:
 		return Object.assign({}, state, {
+			columnType: action.tweets.columnType,
 			tweets: action.tweets
 		});
 		default:

@@ -1,41 +1,28 @@
 'use strict';
 
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-
-import { fetchTweets } from '../actions';
 
 import TweetList from './TweetList';
 
 import '../styles/Main.css';
 
 class Main extends React.Component {
-	componentWillMount() {
-		const { dispatch } = this.props;
-
-		dispatch(fetchTweets());
-	}
-
 	render() {
-		const { tweets } = this.props;
-
 		return (
 			<div className="main">
-				<TweetList tweets={tweets} />
-				<TweetList tweets={tweets} />
-				<TweetList tweets={tweets} />
-				<TweetList tweets={tweets} />
-				<TweetList tweets={tweets} />
-				<TweetList tweets={tweets} />
-				<TweetList tweets={tweets} />
-				<TweetList tweets={tweets} />
-				<TweetList tweets={tweets} />
-				<TweetList tweets={tweets} />
-				<TweetList tweets={tweets} />
-				<TweetList tweets={tweets} />
+				<TweetList columnType="1" />
+				<TweetList columnType="2" />
+				<TweetList columnType="3" />
+				<TweetList columnType="4" />
+				<TweetList columnType="5" />
+				<TweetList columnType="6" />
+				<TweetList columnType="7" />
+				<TweetList columnType="8" />
+				<TweetList columnType="9" />
+				<TweetList columnType="a" />
 			</div>
 		);
 	}
 }
 
-export default connect()(Main);
+export default Main;
