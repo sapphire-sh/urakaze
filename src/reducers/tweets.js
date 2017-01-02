@@ -12,9 +12,9 @@ const tweets = (state = {
 		case REQUEST_TWEETS:
 		return state;
 		case RECEIVE_TWEETS:
+		const columnType = action.tweets.columnType;
 		return Object.assign({}, state, {
-			columnType: action.tweets.columnType,
-			tweets: action.tweets
+			[columnType]: action.tweets[columnType]
 		});
 		default:
 		return state;

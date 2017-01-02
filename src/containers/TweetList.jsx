@@ -44,9 +44,9 @@ TweetList.propTypes = {
 	dispatch: PropTypes.func.isRequired
 };
 
-export default connect((state) => {
-	const columnType = state.tweets.columnType;
-	const tweets = state.tweets.tweets[columnType];
+export default connect((state, prop) => {
+	const { columnType } = prop;
+	const tweets = state.tweets[columnType];
 
 	if(tweets === undefined) {
 		return {
